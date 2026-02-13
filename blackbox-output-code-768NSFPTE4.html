@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            color: #d63384;
+            padding: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        #home {
+            display: block;
+        }
+        #yay {
+            display: none;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        #yay h1 {
+            font-size: 4em;
+            margin-top: 20%;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 2em;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div id="home">
+        <h1>Will you be my Valentine, Zainu?</h1>
+        <button onclick="showYay()">Yes</button>
+        <button onclick="showYay()">Sí</button>
+        <button onclick="showYay()">Oui</button>
+        <button onclick="showYay()">Ja</button>
+        <button onclick="showYay()">Sì</button>
+        <button onclick="showYay()">Sim</button>
+        <button onclick="showYay()">Ja</button>
+        <button onclick="showYay()">Ja</button>
+        <button onclick="showYay()">Да</button>
+        <button onclick="showYay()">はい</button>
+    </div>
+    <div id="yay">
+        <h1>YAYYYYYYYYYY</h1>
+    </div>
+    <script>
+        function showYay() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('yay').style.display = 'block';
+            // Start generating hearts
+            setInterval(createHeart, 500);
+        }
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
